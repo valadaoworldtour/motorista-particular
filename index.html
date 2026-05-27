@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorista Particular</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Adicionado FontAwesome para os novos ícones do layout -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-card">
+        <div class="header">
+            <button class="share-btn" id="btn-share" aria-label="Compartilhar">
+                <i class="fas fa-share-alt"></i>
+            </button>
+            <div class="status-pill">
+                <div class="dot"></div> Online Agora
+            </div>
+            <h1>João Silva</h1>
+            <div class="driver-stats">
+                <i class="fas fa-star star-glow" style="color: #FF8C00;"></i> 5.0 <span>(+ de 5.000 corridas concluídas)</span>
+            </div>
+            <p>Chevrolet Onix Prata • Placa: ABC-1234</p>
+        </div>
+        
+        <div class="profile-pic-container">
+            <div class="profile-wrapper">
+                <div class="profile-pic"></div>
+                <div class="status-indicator"></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="badges-container">
+                <div class="badge-item"><i class="fas fa-check-circle" style="color: #25D366;"></i> Motorista Verificado</div>
+                <div class="badge-item"><i class="fas fa-snowflake" style="color: #4A90E2;"></i> Ar Condicionado</div>
+                <div class="badge-item"><i class="fas fa-wifi"></i> Wi-Fi</div>
+            </div>
+
+            <div class="services-container">
+                <div class="service-chip">✈️ Translados para Aeroportos</div>
+                <div class="service-chip">📅 Corridas Agendadas</div>
+                <div class="service-chip">📦 Pequenas Encomendas</div>
+                <div class="service-chip">🛣️ Viagens Intermunicipais</div>
+            </div>
+
+            <div class="info-details">
+                <div class="info-item"><i class="fas fa-map-marker-alt"></i> São Paulo e Região</div>
+                <div class="info-item"><i class="far fa-clock"></i> Seg a Sáb • 06h às 22h</div>
+            </div>
+
+            <div class="phone-display">
+                (11) 99999-9999
+            </div>
+
+            <div class="whatsapp-container">
+                <div class="badge">Disponível</div>
+                <button class="btn btn-whatsapp pulse-anim" id="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </button>
+            </div>
+
+            <button class="btn btn-call" id="btn-call">
+                <i class="fas fa-phone-alt"></i> Fazer Ligação Normal
+            </button>
+
+            <div class="payment-section">
+                <div class="payment-title">Formas de Pagamento</div>
+                <div class="payment-icons">
+                    <i class="fab fa-pix" style="color: #32BCAD;"></i>
+                    <i class="fas fa-credit-card" style="color: #4A90E2;"></i>
+                    <i class="fas fa-money-bill-wave" style="color: #85BB65;"></i>
+                </div>
+                <button class="btn btn-pix btn" id="btn-copy-pix">
+                    <i class="far fa-copy"></i> Copiar Chave Pix
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notificação Flutuante (Toast) para o Pix -->
+    <div class="toast" id="toast-message"><i class="fas fa-check-circle"></i> Chave Pix Copiada!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

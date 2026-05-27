@@ -1,0 +1,344 @@
+/* =========================================
+   CSS: ESTILIZAÇÃO E ANIMAÇÕES (ESTILO 99)
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #E8EAED; /* Fundo mais escuro para destacar o card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.app-card {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 32px; /* Cantos bem arredondados estilo app */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.header {
+    background-color: #FFD100; /* Amarelo exato da 99 */
+    padding: 30px 20px 70px;
+    text-align: center;
+    position: relative;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    background-image: linear-gradient(rgba(255, 209, 0, 0.9), rgba(255, 209, 0, 1)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=400&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Botão de Compartilhar */
+.share-btn {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    color: #1C1C1C;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Pílula de "Online Agora" */
+.status-pill {
+    background-color: rgba(28, 28, 28, 0.1);
+    color: #1C1C1C;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.status-pill .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #25D366;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: blink 1.5s infinite ease-in-out;
+}
+
+.header h1 {
+    color: #1C1C1C;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 2px;
+    letter-spacing: -0.5px;
+}
+
+.driver-stats {
+    color: #1C1C1C;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.driver-stats span {
+    color: #4A4A4A;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header p {
+    color: #4A4A4A;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.profile-pic-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -55px;
+    position: relative;
+    z-index: 2;
+}
+
+.profile-wrapper {
+    position: relative;
+}
+
+.profile-pic {
+    width: 110px;
+    height: 110px;
+    background-color: #E0E0E0;
+    border-radius: 50%;
+    border: 6px solid #FFFFFF;
+    background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop'); /* Avatar alterado para foto real */
+    background-size: cover;
+    background-position: top;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Bolinha verde no canto da foto */
+.status-indicator {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background-color: #25D366;
+    border: 4px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.content {
+    padding: 10px 24px 20px;
+    text-align: center;
+}
+
+.badges-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.badge-item {
+    background-color: #F3F4F6;
+    color: #4A4A4A;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.service-chip {
+    background-color: #FFF3E0;
+    color: #E65100;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 16px;
+    border: 1px solid #FFE0B2;
+}
+
+.info-details {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 22px;
+    background-color: #F8F9FA;
+    border-radius: 12px;
+    padding: 12px 10px;
+}
+
+.info-item {
+    font-size: 12px;
+    color: #4A4A4A;
+    font-weight: 700;
+}
+
+.phone-display {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1C1C1C;
+    margin: 10px 0 20px;
+}
+
+/* Container do WhatsApp para posicionar a Badge */
+.whatsapp-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+/* Badge flutuante chamativa */
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    background-color: #FFD100;
+    color: #1C1C1C;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.payment-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #E8EAED;
+}
+
+.payment-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #6B7280;
+    margin-bottom: 12px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.btn-pix {
+    background-color: #F3F4F6;
+    color: #1C1C1C;
+    font-size: 14px;
+    padding: 14px;
+    margin-bottom: 0;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 20px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Botão WhatsApp Gigante e Chamativo */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #FFFFFF;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+/* Animação de pulso para o botão do WhatsApp */
+.pulse-anim {
+    animation: pulse-shadow 2s infinite;
+}
+
+/* Botão de Ligação Rebaixado (Secundário) */
+.btn-call {
+    background-color: #F3F4F6;
+    color: #6B7280;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px;
+}
+
+.btn i {
+    margin-right: 10px;
+    font-size: 22px;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Toast Notification para o Pix */
+.toast {
+    position: fixed;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+/* Keyframes das animações */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes pulse-shadow {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.star-glow {
+    animation: glow-star 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes glow-star {
+    0% { filter: drop-shadow(0 0 1px rgba(255, 140, 0, 0.4)); transform: scale(1); }
+    100% { filter: drop-shadow(0 0 8px rgba(255, 140, 0, 0.9)); transform: scale(1.15); }
+}
