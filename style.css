@@ -13,8 +13,8 @@ body {
     background-color: #E8EAED; /* Fundo mais escuro para destacar o card */
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px 15px; /* Adicionado respiro nas bordas para telas de celular */
 }
 
 .app-card {
@@ -25,6 +25,7 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     position: relative;
+    margin: auto; /* Centraliza sem cortar a parte de cima caso a tela seja pequena */
 }
 
 .header {
