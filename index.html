@@ -3,81 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motorista Particular</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Adicionado FontAwesome para os novos ícones do layout -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Cadastro - motoristaappbr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #25D366; /* Cor oficial do WhatsApp */
+            color: white;
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #128C7E;
+        }
+    </style>
 </head>
 <body>
-    <div class="app-card">
-        <div class="header">
-            <button class="share-btn" id="btn-share" aria-label="Compartilhar">
-                <i class="fas fa-share-alt"></i>
-            </button>
-            <div class="status-pill">
-                <div class="dot"></div> Online Agora
-            </div>
-            <h1>João Silva</h1>
-            <div class="driver-stats">
-                <i class="fas fa-star star-glow" style="color: #FF8C00;"></i> 5.0 <span>(+ de 5.000 corridas concluídas)</span>
-            </div>
-            <p>Chevrolet Onix Prata • Placa: ABC-1234</p>
-        </div>
-        
-        <div class="profile-pic-container">
-            <div class="profile-wrapper">
-                <div class="profile-pic"></div>
-                <div class="status-indicator"></div>
-            </div>
-        </div>
-
-        <div class="content">
-            <div class="badges-container">
-                <div class="badge-item"><i class="fas fa-check-circle" style="color: #25D366;"></i> Motorista Verificado</div>
-                <div class="badge-item"><i class="fas fa-snowflake" style="color: #4A90E2;"></i> Ar Condicionado</div>
-                <div class="badge-item"><i class="fas fa-wifi"></i> Wi-Fi</div>
-            </div>
-
-            <div class="services-container">
-                <div class="service-chip">✈️ Translados para Aeroportos</div>
-                <div class="service-chip">📅 Corridas Agendadas</div>
-                <div class="service-chip">📦 Pequenas Encomendas</div>
-                <div class="service-chip">🛣️ Viagens Intermunicipais</div>
-            </div>
-
-            <div class="info-details">
-                <div class="info-item"><i class="fas fa-map-marker-alt"></i> São Paulo e Região</div>
-                <div class="info-item"><i class="far fa-clock"></i> Seg a Sáb • 06h às 22h</div>
-            </div>
-
-            <div class="phone-display">
-                (11) 99999-9999
-            </div>
-
-            <div class="whatsapp-container">
-                <div class="badge">Disponível</div>
-                <button class="btn btn-whatsapp pulse-anim" id="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Cadastre-se Agora
-                </button>
-            </div>
-
-            <div class="payment-section">
-                <div class="payment-title">Formas de Pagamento</div>
-                <div class="payment-icons">
-                    <i class="fab fa-pix" style="color: #32BCAD;"></i>
-                    <i class="fas fa-credit-card" style="color: #4A90E2;"></i>
-                    <i class="fas fa-money-bill-wave" style="color: #85BB65;"></i>
-                </div>
-                <button class="btn btn-pix btn" id="btn-copy-pix">
-                    <i class="far fa-copy"></i> Copiar Chave Pix
-                </button>
-            </div>
-        </div>
+    <div class="card">
+        <h2>motoristaappbr</h2>
+        <p>Insira seu telefone e conclua o cadastro no motoristaappbr via WhatsApp.</p>
+        <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+        <button onclick="enviarParaWhatsApp()">Cadastrar Agora</button>
     </div>
-    
-    <!-- Notificação Flutuante (Toast) para o Pix -->
-    <div class="toast" id="toast-message"><i class="fas fa-check-circle"></i> Chave Pix Copiada!</div>
 
-    <script src="script.js"></script>
+    <script>
+        function enviarParaWhatsApp() {
+            var telefoneDigitado = document.getElementById('telefone').value;
+            
+            if(telefoneDigitado.trim() === '') {
+                alert('Por favor, digite seu número de telefone.');
+                return;
+            }
+
+            // ATENÇÃO: Substitua pelo número de WhatsApp da sua empresa
+            // Formato: Código do país (55) + DDD (11) + Número. Tudo junto, sem espaços ou símbolos.
+            var numeroDestino = '5511999999999'; 
+            
+            // Mensagem que será preenchida automaticamente no WhatsApp
+            var mensagem = 'Olá, quero me cadastrar no motoristaappbr! Meu número é: ' + telefoneDigitado;
+            
+            // Gera o link da API oficial do WhatsApp e abre em uma nova aba
+            var url = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
