@@ -284,14 +284,6 @@ body {
     animation: pulse-shadow 2s infinite;
 }
 
-/* Botão de Ligação Rebaixado (Secundário) */
-.btn-call {
-    background-color: #F3F4F6;
-    color: #6B7280;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 14px;
-}
 
 .btn i {
     margin-right: 10px;

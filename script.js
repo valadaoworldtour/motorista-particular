@@ -12,7 +12,6 @@ const mensagemPadrao = "Olá! Preciso de um motorista. Qual a sua disponibilidad
 const chavePix = "celular:11999999999";
 
 const btnWhatsapp = document.getElementById('btn-whatsapp');
-const btnCall = document.getElementById('btn-call');
 const btnCopyPix = document.getElementById('btn-copy-pix');
 const btnShare = document.getElementById('btn-share');
 const toastMessage = document.getElementById('toast-message');
@@ -21,11 +20,6 @@ const toastMessage = document.getElementById('toast-message');
 btnWhatsapp.addEventListener('click', () => {
     const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagemPadrao)}`;
     window.open(url, '_blank');
-});
-
-// Evento de clique para Ligação
-btnCall.addEventListener('click', () => {
-    window.location.href = `tel:+${numeroDestino}`;
 });
 
 // Evento de clique para Copiar a Chave Pix
