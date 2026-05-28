@@ -181,7 +181,7 @@
 
             var numeroDestino = '5561920037130'; 
             var mensagem = 'Olá! Quero me cadastrar como motorista. Meu número é: ' + telefoneDigitado;
-            var urlWhatsApp = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
+            var urlWhatsApp = 'https://api.whatsapp.com/send?phone=' + numeroDestino + '&text=' + encodeURIComponent(mensagem);
             
             // Dispara a conversão do Google Ads e depois redireciona
             gtagReportarConversaoeRedirecionar(urlWhatsApp);
@@ -200,7 +200,7 @@
             function redirecionar() {
                 if (!conversaoDisparada) {
                     conversaoDisparada = true;
-                    window.open(url, '_blank');
+                    window.location.href = url;
                 }
             }
 
