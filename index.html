@@ -75,9 +75,9 @@
             // Mensagem que será preenchida automaticamente no WhatsApp
             var mensagem = 'Cadastre-se. Meu número é: ' + telefoneDigitado;
             
-            // Gera o link da API oficial do WhatsApp e abre em uma nova aba
+            // Gera o link da API oficial do WhatsApp e redireciona na mesma aba
             var url = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
-            window.open(url, '_blank');
+            window.location.href = url;
         }
     </script>
 </body>
