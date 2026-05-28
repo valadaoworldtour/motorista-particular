@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - motoristaappbr</title>
+    <title>Cadastro - Motorista de appbr</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f2f5;
+            background-color: #FFD700;
             margin: 0;
         }
         .card {
@@ -55,10 +55,9 @@
 </head>
 <body>
     <div class="card">
-        <h2>motoristaappbr</h2>
-        <p>Insira seu telefone e conclua o cadastro no motoristaappbr via WhatsApp.</p>
+        <h2>Motorista de appbr</h2>
         <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
-        <button onclick="enviarParaWhatsApp()">Cadastrar Agora</button>
+        <button onclick="enviarParaWhatsApp()">Cadastre-se</button>
     </div>
 
     <script>
@@ -75,7 +74,7 @@
             var numeroDestino = '5511999999999'; 
             
             // Mensagem que será preenchida automaticamente no WhatsApp
-            var mensagem = 'Olá, quero me cadastrar no motoristaappbr! Meu número é: ' + telefoneDigitado;
+            var mensagem = 'Cadastre-se. Meu número é: ' + telefoneDigitado;
             
             // Gera o link da API oficial do WhatsApp e abre em uma nova aba
             var url = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
