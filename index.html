@@ -3,81 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Motorista de appbr</title>
+    <title>Cadastro - Motorista AppBR</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-CONVERSION_ID'); // Substitua AW-CONVERSION_ID aqui também
+    </script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #FFD700;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
         }
         .card {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
+        }
+        .logo-placeholder {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
         }
         h2 {
-            color: #333;
+            color: #222;
             margin-top: 0;
+            font-size: 22px;
+        }
+        p.subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+        .benefits-box {
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #FFD700;
+        }
+        .benefits-box ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #444;
+            font-size: 14px;
+        }
+        .benefits-box li {
+            margin-bottom: 8px;
+        }
+        .benefits-box li:last-child {
+            margin-bottom: 0;
         }
         input[type="tel"] {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 15px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 16px;
             box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        input[type="tel"]:focus {
+            border-color: #25D366;
         }
         button {
-            background-color: #25D366; /* Cor oficial do WhatsApp */
+            background-color: #25D366;
             color: white;
             border: none;
-            padding: 14px;
+            padding: 15px;
             width: 100%;
-            border-radius: 5px;
+            border-radius: 6px;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         button:hover {
             background-color: #128C7E;
         }
+        /* Rodapé exigido pelo Google Ads para conformidade */
+        footer {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            font-size: 12px;
+            color: #444;
+            line-height: 1.6;
+            margin-top: 30px;
+            padding-top: 15px;
+        }
+        footer a {
+            color: #111;
+            text-decoration: underline;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Motorista de appbr</h2>
-        <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
-        <button onclick="enviarParaWhatsApp()">Cadastre-se</button>
+
+    <div class="main-container">
+        <div class="card">
+            <div class="logo-placeholder">🚗 Motorista AppBR</div>
+            
+            <h2>Seja um Motorista Parceiro</h2>
+            <p class="subtitle">Insira o seu número abaixo para iniciar o seu cadastro de forma rápida e segura através do nosso atendimento oficial no WhatsApp.</p>
+            
+            <div class="benefits-box">
+                <ul>
+                    <li>As melhores taxas do mercado</li>
+                    <li>Pagamentos semanais direto na sua conta</li>
+                    <li>Suporte humanizado 24 horas por dia</li>
+                </ul>
+            </div>
+
+            <input type="tel" id="telefone" placeholder="(11) 99999-9999" aria-label="Digite seu número de telefone com DDD" maxlength="15" required>
+            <button onclick="validarEEnviar()">Iniciar Cadastro</button>
+        </div>
     </div>
 
+    <footer>
+        <p>
+            &copy; 2026 Motorista AppBR. Todos os direitos reservados.<br>
+            Nome da Empresa / Razão Social | CNPJ: 00.000.000/0001-00<br>
+            Contato: contato@seudominio.com.br
+        </p>
+        <p>
+            <a href="#" target="_blank">Política de Privacidade</a> | <a href="#" target="_blank">Termos de Uso</a>
+        </p>
+    </footer>
+
     <script>
-        function enviarParaWhatsApp() {
-            var telefoneDigitado = document.getElementById('telefone').value;
+        // Máscara automática para o input de telefone
+        const inputTelefone = document.getElementById('telefone');
+        inputTelefone.addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+        });
+
+        // Função que valida o formulário e inicia o processo
+        function validarEEnviar() {
+            var telefoneDigitado = inputTelefone.value;
+            var apenasNumeros = telefoneDigitado.replace(/\D/g, '');
             
-            if(telefoneDigitado.trim() === '') {
-                alert('Por favor, digite seu número de telefone.');
+            if(apenasNumeros.length < 10) {
+                alert('Por favor, digite um número de telefone válido com o seu DDD.');
                 return;
             }
 
-            // Número de destino do WhatsApp
             var numeroDestino = '5561920037130'; 
+            var mensagem = 'Olá! Quero me cadastrar como motorista. Meu número é: ' + telefoneDigitado;
+            var urlWhatsApp = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
             
-            // Mensagem que será preenchida automaticamente no WhatsApp
-            var mensagem = 'Cadastre-se. Meu número é: ' + telefoneDigitado;
-            
-            // Gera o link da API oficial do WhatsApp e redireciona na mesma aba
-            var url = 'https://wa.me/' + numeroDestino + '?text=' + encodeURIComponent(mensagem);
-            window.location.href = url;
+            // Dispara a conversão do Google Ads e depois redireciona
+            gtagReportarConversaoeRedirecionar(urlWhatsApp);
+        }
+
+        /* ======================================================================
+            2. RASTREAMENTO DE CONVERSÃO DO GOOGLE ADS
+            Substitua "AW-CONVERSION_ID/CONVERSION_LABEL" pelos dados gerados
+            na sua meta de conversão do painel do Google Ads.
+            ======================================================================
+        */
+        function gtagReportarConversaoeRedirecionar(url) {
+            var conversaoDisparada = false;
+
+            // Função de segurança para garantir o redirecionamento mesmo se o Google falhar
+            function redirecionar() {
+                if (!conversaoDisparada) {
+                    conversaoDisparada = true;
+                    window.open(url, '_blank');
+                }
+            }
+
+            // Tenta enviar o evento para o Google Ads
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                    'event_callback': redirecionar
+                });
+                
+                // Limite de 800ms para o Google responder, se demorar mais, redireciona à força
+                setTimeout(redirecionar, 800);
+            } else {
+                // Caso o usuário use bloqueador de anúncios e o script do Google não carregue
+                redirecionar();
+            }
         }
     </script>
 </body>
